@@ -13,7 +13,7 @@ class CreatePorposalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('porposals', function (Blueprint $table) {
+        Schema::create('proposals', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
             $table->string('file_name');
@@ -30,6 +30,6 @@ class CreatePorposalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('porposals');
+        Schema::dropIfExists('proposals');
     }
 }

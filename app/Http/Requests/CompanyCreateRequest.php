@@ -25,7 +25,8 @@ class CompanyCreateRequest extends FormRequest
     {
         return [
             'name' => 'bail|required|string|unique:name',
-            'address' => 'bail|nullable|string'
+            'address' => 'bail|nullable|string',
+            'country_id' => 'bail|required|numeric|exists:countris,id'
         ];
     }
 }

@@ -6,7 +6,7 @@ namespace App\Repositories\Interfaces;
 
 use Illuminate\Support\Collection;
 
-interface CompanyRepositoryInterface
+interface ProposalRepositoryInterface
 {
     public function all(): Collection;
 

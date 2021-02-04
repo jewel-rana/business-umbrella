@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CompanyUpdateRequest extends FormRequest
+class ProposalUploadRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,7 @@ class CompanyUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'bail|required|string|unique:name,' . $this->company,
-            'address' => 'bail|nullable|string',
-            'country_id' => 'bail|required|numeric|exists:countris,id'
+            'attachment' => 'bail|required|mimes:pdf|max:2048'
         ];
     }
 }

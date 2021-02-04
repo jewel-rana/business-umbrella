@@ -11,6 +11,8 @@ class Company extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'address', 'country_id'];
+
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class)->withPivot('joined_at');
