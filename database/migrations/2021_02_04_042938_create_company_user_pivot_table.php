@@ -16,6 +16,7 @@ class CreateCompanyUserPivotTable extends Migration
         Schema::create('company_user', function (Blueprint $table) {
             $table->bigInteger('company_id');
             $table->bigInteger('user_id');
+            $table->timestamp('joined_at');
         });
     }
 
