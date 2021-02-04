@@ -4,10 +4,17 @@
 namespace App\Services;
 
 
+use Spatie\PdfToText\Pdf;
+
 class PdfService
 {
-    public function searchText(string $string): bool
+    public function searchText(string $word): bool
     {
-        return false;
+        $text = '';
+        if(request()->hasFile('attachment')) {
+            $text = Pdf::getText(request()->file('attachment'));
+        }
+
+        return strpos($text, $word) !== false;
     }
 }
