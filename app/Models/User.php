@@ -43,11 +43,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function country(): BelongsTo
-    {
-        return $this->belongsTo(Country::class, 'country', 'code');
-    }
-
     public function companies() : BelongsToMany
     {
         return $this->belongsToMany(Company::class);

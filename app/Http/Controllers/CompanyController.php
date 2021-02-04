@@ -21,11 +21,17 @@ class CompanyController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response|View
      */
     public function index()
     {
-        return Company::with(['users'])->all();
+        $country = "Canada";
+        $companies = Company::with(['users'])
+            ->whereHas('country', function($query) use($country) {
+                $query->where('name', $country);
+            })
+            ->get();
+        return view('company.index', compact('companies'));
     }
 
     /**

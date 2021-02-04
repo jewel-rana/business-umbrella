@@ -17,6 +17,7 @@ class CreateCompaniesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('address')->nullable();
+            $table->bigInteger('country_id');
             $table->timestamps();
         });
     }
